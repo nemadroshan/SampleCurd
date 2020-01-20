@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="jobsView.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:button text="Create" id="b1" action="create"/>&nbsp;
+            <af:button text="Edit" id="b2" action="edit"/>&nbsp;
+            <af:button text="View" id="b3" action="view"/>&nbsp;
+            <af:button text="Delete" id="b4" action="delete"/>&nbsp;<br/>
+            <af:table value="#{bindings.JobsViewVO1.collectionModel}" var="row" rows="#{bindings.JobsViewVO1.rangeSize}"
+                      emptyText="#{bindings.JobsViewVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.JobsViewVO1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.JobsViewVO1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.JobsViewVO1.rangeSize}"
+                      filterModel="#{bindings.JobsViewVO1Query.queryDescriptor}"
+                      queryListener="#{bindings.JobsViewVO1Query.processQuery}" filterVisible="true" varStatus="vs"
+                      id="t1">
+                <af:column sortProperty="#{bindings.JobsViewVO1.hints.JobId.name}" filterable="true" sortable="true"
+                           headerText="JOB ID" id="c1">
+                    <af:outputText value="#{row.JobId}" shortDesc="#{bindings.JobsViewVO1.hints.JobId.tooltip}"
+                                   id="ot1"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.JobsViewVO1.hints.JobTitle.name}" filterable="true" sortable="true"
+                           headerText="JOB TITLE" id="c2">
+                    <af:outputText value="#{row.JobTitle}" shortDesc="#{bindings.JobsViewVO1.hints.JobTitle.tooltip}"
+                                   id="ot2"/>
+                </af:column>
+                <af:column sortProperty="#{bindings.JobsViewVO1.hints.MinSalary.name}" filterable="true" sortable="true"
+                           headerText="MIN SALARY" id="c3">
+                    <af:outputText value="#{row.MinSalary}" shortDesc="#{bindings.JobsViewVO1.hints.MinSalary.tooltip}"
+                                   id="ot3">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.JobsViewVO1.hints.MinSalary.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column sortProperty="#{bindings.JobsViewVO1.hints.MaxSalary.name}" filterable="true" sortable="true"
+                           headerText="MAX SALARY" id="c4">
+                    <af:outputText value="#{row.MaxSalary}" shortDesc="#{bindings.JobsViewVO1.hints.MaxSalary.tooltip}"
+                                   id="ot4">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.JobsViewVO1.hints.MaxSalary.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="jobsView">
+    <page>/jobsView.jsf</page>
+  </view>
+  <view id="jobsForm">
+    <page>/jobsForm.jsf</page>
+  </view>
+  <view id="jobsDetail">
+    <page>/jobsDetail.jsf</page>
+  </view>
+  <method-call id="CreateInsert">
+    <method>#{bindings.CreateInsert.execute}</method>
+    <outcome>
+      <fixed-outcome>CreateInsert</fixed-outcome>
+    </outcome>
+  </method-call>
+  <method-call id="Commit">
+    <method>#{bindings.Commit.execute}</method>
+    <outcome>
+      <fixed-outcome>Commit</fixed-outcome>
+    </outcome>
+  </method-call>
+  <method-call id="Rollback">
+    <method>#{bindings.Rollback.execute}</method>
+    <outcome>
+      <fixed-outcome>Rollback</fixed-outcome>
+    </outcome>
+  </method-call>
+  <method-call id="Delete">
+    <method>#{bindings.Delete.execute}</method>
+    <outcome>
+      <fixed-outcome>Delete</fixed-outcome>
+    </outcome>
+  </method-call>
+  <control-flow-rule id="__1">
+    <from-activity-id>jobsView</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>view</from-outcome>
+      <to-activity-id>jobsDetail</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__5">
+      <from-outcome>create</from-outcome>
+      <to-activity-id>CreateInsert</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__11">
+      <from-outcome>edit</from-outcome>
+      <to-activity-id>jobsForm</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__12">
+      <from-outcome>delete</from-outcome>
+      <to-activity-id>Delete</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__13">
+      <from-outcome>commit</from-outcome>
+      <to-activity-id>Commit</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__14">
+      <from-outcome>rollback</from-outcome>
+      <to-activity-id>Rollback</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__3">
+    <from-activity-id>jobsDetail</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome>back</from-outcome>
+      <to-activity-id>jobsView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__6">
+    <from-activity-id>CreateInsert</from-activity-id>
+    <control-flow-case id="__7">
+      <from-outcome>CreateInsert</from-outcome>
+      <to-activity-id>jobsForm</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__8">
+    <from-activity-id>jobsForm</from-activity-id>
+    <control-flow-case id="__9">
+      <from-outcome>save</from-outcome>
+      <to-activity-id>Commit</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__10">
+      <from-outcome>cancle</from-outcome>
+      <to-activity-id>Rollback</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__15">
+    <from-activity-id>Delete</from-activity-id>
+    <control-flow-case id="__16">
+      <from-outcome>Delete</from-outcome>
+      <to-activity-id>Commit</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+</adfc-config>

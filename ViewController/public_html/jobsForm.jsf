@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="jobsForm.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelFormLayout id="pfl1">
+                <af:inputText value="#{bindings.JobId.inputValue}" label="JOB ID"
+                              required="#{bindings.JobId.hints.mandatory}"
+                              columns="#{bindings.JobId.hints.displayWidth}"
+                              maximumLength="#{bindings.JobId.hints.precision}"
+                              shortDesc="#{bindings.JobId.hints.tooltip}" id="it1">
+                    <f:validator binding="#{bindings.JobId.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.JobTitle.inputValue}" label="JOB TITLE"
+                              required="#{bindings.JobTitle.hints.mandatory}"
+                              columns="#{bindings.JobTitle.hints.displayWidth}"
+                              maximumLength="#{bindings.JobTitle.hints.precision}"
+                              shortDesc="#{bindings.JobTitle.hints.tooltip}" id="it2">
+                    <f:validator binding="#{bindings.JobTitle.validator}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.MinSalary.inputValue}" label="MIN SALARY"
+                              required="#{bindings.MinSalary.hints.mandatory}"
+                              columns="#{bindings.MinSalary.hints.displayWidth}"
+                              maximumLength="#{bindings.MinSalary.hints.precision}"
+                              shortDesc="#{bindings.MinSalary.hints.tooltip}" id="it3">
+                    <f:validator binding="#{bindings.MinSalary.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.MinSalary.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.MaxSalary.inputValue}" label="MAX SALARY"
+                              required="#{bindings.MaxSalary.hints.mandatory}"
+                              columns="#{bindings.MaxSalary.hints.displayWidth}"
+                              maximumLength="#{bindings.MaxSalary.hints.precision}"
+                              shortDesc="#{bindings.MaxSalary.hints.tooltip}" id="it4">
+                    <f:validator binding="#{bindings.MaxSalary.validator}"/>
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.MaxSalary.format}"/>
+                </af:inputText>
+                <f:facet name="footer">
+                    <af:button text="Submit" id="b1"/>
+                    <af:button text="cancel" id="b2" action="cancle" immediate="true"/>
+                </f:facet>
+            </af:panelFormLayout>
+        </af:form>
+    </af:document>
+</f:view>

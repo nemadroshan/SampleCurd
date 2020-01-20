@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.8" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/jobsView.jsf" usageId="view_jobsViewPageDef"/>
+    <page path="/jobsForm.jsf" usageId="view_jobsFormPageDef"/>
+    <page path="/jobsDetail.jsf" usageId="view_jobsDetailPageDef"/>
+    <page path="PageFlow#CreateInsert" usageId="view_adfc_config___CreateInsertPageDef"/>
+    <page path="PageFlow#Commit" usageId="view_adfc_config___CommitPageDef"/>
+    <page path="PageFlow#Rollback" usageId="view_adfc_config___RollbackPageDef"/>
+    <page path="PageFlow#Delete" usageId="view_adfc_config___DeletePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_jobsViewPageDef" path="view.pageDefs.jobsViewPageDef"/>
+    <page id="view_jobsFormPageDef" path="view.pageDefs.jobsFormPageDef"/>
+    <page id="view_jobsDetailPageDef" path="view.pageDefs.jobsDetailPageDef"/>
+    <page id="view_adfc_config___CreateInsertPageDef" path="view.pageDefs.adfc_config___CreateInsertPageDef"/>
+    <page id="view_adfc_config___CommitPageDef" path="view.pageDefs.adfc_config___CommitPageDef"/>
+    <page id="view_adfc_config___RollbackPageDef" path="view.pageDefs.adfc_config___RollbackPageDef"/>
+    <page id="view_adfc_config___DeletePageDef" path="view.pageDefs.adfc_config___DeletePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

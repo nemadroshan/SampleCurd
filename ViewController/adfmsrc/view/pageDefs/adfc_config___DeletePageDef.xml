@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="adfc_config___DeletePageDef"
+                Package="view.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="JobsViewVO1" RangeSize="25" DataControl="AppModuleDataControl" id="JobsViewVO1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="JobsViewVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>
